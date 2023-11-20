@@ -220,7 +220,7 @@ schema = {
                         "work"
                     ]
                 },
-                "minItems": 1
+                "minItems":  1
             }
         }
     }
