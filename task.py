@@ -214,13 +214,11 @@ schema = {
     "then": {
         "properties": {
             "tasksAccordingToAge": {
-                "items": {
-                    "enum": [
-                        "vote",
-                        "work"
-                    ]
-                },
-                "minItems": 1
+               "contains": {
+                        "enum": ["vote", "work"]
+                    }
+            
+                
             }
         }
     }
