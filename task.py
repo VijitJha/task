@@ -128,27 +128,18 @@ schema = {
                         "then": {
                             "properties": {
                                 "tasks": {
-                                    "contains": {
-                                        "const": "brush"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "name": {
-                                    "const": "morning"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "tasks": {
-                                    "contains": {
-                                        "const": "bath"
-                                    }
+                                    "allOf": [
+                                        {
+                                            "contains": {
+                                                "const": "brush"
+                                            }
+                                        },
+                                        {
+                                            "contains": {
+                                                "const": "bath"
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -164,27 +155,18 @@ schema = {
                         "then": {
                             "properties": {
                                 "tasks": {
-                                    "contains": {
-                                        "const": "walk"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "name": {
-                                    "const": "night"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "tasks": {
-                                    "contains": {
-                                        "const": "brush"
-                                    }
+                                    "allOf": [
+                                        {
+                                            "contains": {
+                                                "const": "walk"
+                                            }
+                                        },
+                                        {
+                                            "contains": {
+                                                "const": "brush"
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -214,13 +196,12 @@ schema = {
     "then": {
         "properties": {
             "tasksAccordingToAge": {
-                "items": {
+                "contains": {
                     "enum": [
                         "vote",
                         "work"
                     ]
-                },
-                "minItems":  1
+                }
             }
         }
     }
@@ -231,8 +212,3 @@ error_list =[]
 for error in errors:
     error_list.append(error)
     print(error_list)
-
-
-    
-
-
